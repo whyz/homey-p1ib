@@ -1,0 +1,9 @@
+[
+    {
+      "id": "p1ib_address",
+      "type": "text",
+      "label": { "en": "IP address or hostname" },
+      "value": "p1ib.local",
+      "hint": { "en": "p1ib address" }
+    }
+  ]

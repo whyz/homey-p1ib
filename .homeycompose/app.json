@@ -1,0 +1,28 @@
+{
+  "id": "nu.ahlner.p1ib",
+  "version": "1.0.0",
+  "compatibility": ">=5.0.0",
+  "sdk": 3,
+  "platforms": [
+    "local"
+  ],
+  "author": {
+    "email": "erik@ahlner.nu",
+    "name": "Erik Ahlner"
+  },
+  "name": {
+    "en": "p1ib"
+  },
+  "description": {
+    "en": "Adds support for remne's p1ib"
+  },
+  "category": [
+    "energy"
+  ],
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  }
+}

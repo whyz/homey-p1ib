@@ -1,0 +1,47 @@
+<script type="application/javascript">
+
+    function onAddButtonClick()
+    {
+        p1ibAddress = document.getElementById('p1ib_address').value;
+
+        Homey.showLoadingOverlay();
+
+        Homey.emit("test_connection", { p1ibAddress: p1ibAddress }).then(function (result) {
+          console.log(result);
+
+          Homey.hideLoadingOverlay();
+
+          if(result == 'ERROR')
+          {
+            Homey.alert("Unable to connect", "error");
+          } else {
+            addDevice(p1ibAddress, result.mac_address);
+          }
+        });
+    }
+
+    function addDevice(p1ibAddress, deviceId)
+    {
+        Homey.createDevice({
+            name: "p1ib",
+            data: {
+                id: deviceId,
+            },
+            settings: {
+                p1ib_address: p1ibAddress,
+            },
+        })
+        .then(function (result) {
+            Homey.done();
+        })
+        .catch(function (error) {
+            Homey.alert(err);
+        });
+    }
+    
+  </script>
+
+
+<label for="p1ib_address">p1ib ip address or hostname:</label>
+<input name="p1ib_address" id="p1ib_address" placeholder="p1ib.local" type="text"/>
+<button onclick="onAddButtonClick()">Add</button>

@@ -1,0 +1,48 @@
+{
+  "name": {
+    "en": "p1ib"
+  },
+  "class": "sensor",
+  "capabilities": [
+    "measure_current.l1",
+    "measure_current.l2",
+    "measure_current.l3",
+    "meter_power",
+    "measure_power",
+    "measure_power.export",
+    "measure_voltage.l1",
+    "measure_voltage.l2",
+    "measure_voltage.l3"
+  ],
+  "discovery": "p1ib",
+  "energy": {
+    "cumulative": true
+  },
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "lan"
+  ],
+  "images": {
+    "small": "{{driverAssetsPath}}/images/small.png",
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "xlarge": "{{driverAssetsPath}}/images/xlarge.png"
+  },
+  "pair": [
+    {
+      "id": "list_my_devices",
+      "template": "list_devices",
+      "navigation": { "next": "add_my_devices" },
+      "options": { "singular": true }
+    },
+    {
+      "id": "manual_add_view"
+    },
+    {
+      "id": "add_my_devices",
+      "template": "add_devices",
+      "navigation": { "prev": "list_my_devices" }
+    }
+  ]
+}
