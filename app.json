@@ -1,0 +1,114 @@
+{
+  "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
+  "id": "nu.ahlner.p1ib",
+  "version": "1.0.1",
+  "compatibility": ">=5.0.0",
+  "sdk": 3,
+  "brandColor": "#0d47a2",
+  "platforms": [
+    "local"
+  ],
+  "author": {
+    "email": "erik@ahlner.nu",
+    "name": "Erik Ahlner"
+  },
+  "name": {
+    "en": "p1ib"
+  },
+  "description": {
+    "en": "remne's P1IB - P1 Interface Bridge"
+  },
+  "category": [
+    "energy"
+  ],
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "bugs": {
+    "url": "https://github.com/whyz/homey-p1ib/issues"
+  },
+  "source": "https://github.com/whyz/homey-p1ib",
+  "drivers": [
+    {
+      "name": {
+        "en": "p1ib"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "measure_current.l1",
+        "measure_current.l2",
+        "measure_current.l3",
+        "meter_power",
+        "measure_power",
+        "measure_power.export",
+        "measure_voltage.l1",
+        "measure_voltage.l2",
+        "measure_voltage.l3"
+      ],
+      "discovery": "p1ib",
+      "energy": {
+        "cumulative": true
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "images": {
+        "small": "/drivers/p1ib/assets/images/small.png",
+        "large": "/drivers/p1ib/assets/images/large.png",
+        "xlarge": "/drivers/p1ib/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "list_my_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_my_devices"
+          },
+          "options": {
+            "singular": true
+          }
+        },
+        {
+          "id": "manual_add_view"
+        },
+        {
+          "id": "add_my_devices",
+          "template": "add_devices",
+          "navigation": {
+            "prev": "list_my_devices"
+          }
+        }
+      ],
+      "id": "p1ib",
+      "settings": [
+        {
+          "id": "p1ib_address",
+          "type": "text",
+          "label": {
+            "en": "IP address or hostname"
+          },
+          "value": "p1ib.local",
+          "hint": {
+            "en": "p1ib address"
+          }
+        }
+      ]
+    }
+  ],
+  "discovery": {
+    "p1ib": {
+      "type": "mdns-sd",
+      "mdns-sd": {
+        "name": "p1ib",
+        "protocol": "tcp"
+      },
+      "id": "{{txt.id}}"
+    }
+  }
+}

@@ -1,8 +1,9 @@
 {
   "id": "nu.ahlner.p1ib",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "compatibility": ">=5.0.0",
   "sdk": 3,
+  "brandColor": "#0d47a2",
   "platforms": [
     "local"
   ],
@@ -14,7 +15,7 @@
     "en": "p1ib"
   },
   "description": {
-    "en": "Adds support for remne's p1ib"
+    "en": "remne's P1IB - P1 Interface Bridge"
   },
   "category": [
     "energy"
@@ -24,5 +25,9 @@
     "small": "/assets/images/small.png",
     "large": "/assets/images/large.png",
     "xlarge": "/assets/images/xlarge.png"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/whyz/homey-p1ib/issues"
+  },
+  "source": "https://github.com/whyz/homey-p1ib"
 }
