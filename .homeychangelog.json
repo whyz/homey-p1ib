@@ -10,5 +10,8 @@
   },
   "1.0.3": {
     "en": "Added URL to remne's github repository for p1ib"
+  },
+  "1.0.4": {
+    "en": "Added meter_power.export and description of other capabilities"
   }
 }
