@@ -13,5 +13,8 @@
   },
   "1.0.4": {
     "en": "Added meter_power.export and description of other capabilities"
+  },
+  "1.0.5": {
+    "en": "Add power L1, L2 and L3"
   }
 }
