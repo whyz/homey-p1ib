@@ -13,7 +13,10 @@
     "measure_power.export",
     "measure_voltage.l1",
     "measure_voltage.l2",
-    "measure_voltage.l3"
+    "measure_voltage.l3",
+    "measure_power.l1",
+    "measure_power.l2",
+    "measure_power.l3"
   ],
   "capabilitiesOptions": {
     "measure_power.export" : {
@@ -41,6 +44,15 @@
     },
     "measure_current.l3" : {
       "title": { "en": "Current L3" }
+    },
+    "measure_power.l1" : {
+      "title": { "en": "Power L1" }
+    },
+    "measure_power.l2" : {
+      "title": { "en": "Power L2" }
+    },
+    "measure_power.l3" : {
+      "title": { "en": "Power L3" }
     }
   },
   "discovery": "p1ib",

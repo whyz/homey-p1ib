@@ -38,6 +38,10 @@ class P1ibDevice extends Device {
       this.setCapabilityValue('measure_voltage.l2', meterData.voltageL2).catch(this.error);
       this.setCapabilityValue('measure_voltage.l3', meterData.voltageL3).catch(this.error);
 
+      this.setCapabilityValue('measure_power.l1', meterData.powerL1).catch(this.error);
+      this.setCapabilityValue('measure_power.l2', meterData.powerL2).catch(this.error);
+      this.setCapabilityValue('measure_power.l3', meterData.powerL3).catch(this.error);
+
       this.setAvailable().catch(this.error);
     } catch (error) {
       console.error('error:', error);

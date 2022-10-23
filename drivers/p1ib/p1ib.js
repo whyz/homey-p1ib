@@ -49,6 +49,10 @@ class P1ibConnector {
     const currentL2Obis = '1.0.51.7.0.255';
     const currentL3Obis = '1.0.71.7.0.255';
 
+    const powerL1Obis = '1.0.21.7.0.255';
+    const powerL2Obis = '1.0.41.7.0.255';
+    const powerL3Obis = '1.0.61.7.0.255';
+
     const momentaryPowerImport = this.getValueFromMeterData(meterData, momentaryPowerImportObis) * 1000;
     const momentaryPowerExport = this.getValueFromMeterData(meterData, momentaryPowerExportObis) * 1000;
 
@@ -65,6 +69,10 @@ class P1ibConnector {
     const voltageL2 = this.getValueFromMeterData(meterData, voltageL2Obis);
     const voltageL3 = this.getValueFromMeterData(meterData, voltageL3Obis);
 
+    const powerL1 = this.getValueFromMeterData(meterData, powerL1Obis) * 1000;
+    const powerL2 = this.getValueFromMeterData(meterData, powerL2Obis) * 1000;
+    const powerL3 = this.getValueFromMeterData(meterData, powerL3Obis) * 1000;
+
     const meanVoltage = (voltageL1 + voltageL2 + voltageL3) / 3;
 
     const retval = {
@@ -74,6 +82,9 @@ class P1ibConnector {
       currentL1,
       currentL2,
       currentL3,
+      powerL1,
+      powerL2,
+      powerL3,
       voltage: meanVoltage,
       current: totalCurrent,
       momentaryPowerImport,
