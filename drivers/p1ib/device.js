@@ -21,6 +21,11 @@ class P1ibDevice extends Device {
 
   async update() {
     try {
+      if (!this.p1ibConnector.address) {
+        console.log('No address has been set - skipping update');
+        return;
+      }
+
       const meterData = await this.p1ibConnector.readMeterData();
       this.log(meterData);
 
@@ -77,12 +82,18 @@ class P1ibDevice extends Device {
 
   async onDiscoveryAvailable(discoveryResult) {
     console.log('onDiscoveryAvailable:', discoveryResult);
+
+    const p1ibAddress = `${discoveryResult.address}:${discoveryResult.port}`;
+
+    await this.setSettings({
+      p1ib_address: p1ibAddress,
+    });
+
+    this.p1ibConnector.address = p1ibAddress;
   }
 
   async onDiscoveryAddressChanged(discoveryResult) {
     console.log('onDiscoveryAddressChanged');
-
-    this.homey.clearInterval(this.pollTimeout);
 
     const p1ibAddress = `${discoveryResult.address}:${discoveryResult.port}`;
 

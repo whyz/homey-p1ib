@@ -66,7 +66,7 @@ class P1ibDriver extends Driver {
 
       if (this.discoveryResult) {
         console.log('discoveryResult found', this.discoveryResult);
-        return this.discoveryResult;
+        return [this.discoveryResult];
       }
       console.log('no devices found - going to manual add view');
       await session.showView('manual_add_view');

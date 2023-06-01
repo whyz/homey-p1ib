@@ -16,5 +16,11 @@
   },
   "1.0.5": {
     "en": "Add power L1, L2 and L3"
+  },
+  "1.0.6": {
+    "en": "test version for homey pro 2023"
+  },
+  "1.0.7": {
+    "en": "Restore manual device add functionality for Homey Pro 2023"
   }
 }
