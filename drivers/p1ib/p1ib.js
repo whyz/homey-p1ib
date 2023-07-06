@@ -13,10 +13,8 @@ class P1ibConnector {
   }
 
   getValueFromMeterData(meterData, obis) {
-    for (const group in meterData['d']) {
-      if (obis in meterData['d'][group]['obis']) {
-        return meterData['d'][group]['obis'][obis]['v'][9]; // most recent value in the array
-      }
+    if (obis in meterData['d']) {
+      return meterData['d'][obis][9]; // most recent value in the array
     }
     return 0;
   }
@@ -32,8 +30,20 @@ class P1ibConnector {
     const url = `http://${this.address}/meterData`;
     console.log('fetching data from:', url);
 
-    const response = await got(url);
-    const meterData = JSON.parse(response.body);
+    let responseBody = '';
+
+    try {
+      const response = await got(url);
+      responseBody = response.body;
+    } catch (error) {
+      console.error('Error caught while getting meterData', error);
+    }
+
+    const meterData = JSON.parse(responseBody);
+
+    if (meterData == null) {
+      console.error(`Unable to parse meterData json from body: ${responseBody}`);
+    }
 
     const momentaryPowerImportObis = '1.0.1.7.0.255';
     const momentaryPowerExportObis = '1.0.2.7.0.255';
