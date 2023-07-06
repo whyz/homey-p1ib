@@ -16,7 +16,7 @@
     "en": "p1ib"
   },
   "description": {
-    "en": "remne's P1IB - P1 Interface Bridge"
+    "en": "Remnetech P1IB - P1 Interface Bridge"
   },
   "category": [
     "energy"
@@ -31,7 +31,7 @@
     "url": "https://github.com/whyz/homey-p1ib/issues"
   },
   "source": "https://github.com/whyz/homey-p1ib",
-  "homepage": "https://github.com/remne/p1ib",
+  "homepage": "https://remne.tech",
   "drivers": [
     {
       "name": {
