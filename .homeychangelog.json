@@ -25,5 +25,8 @@
   },
   "1.0.8": {
     "en": "Updated p1ib manufacturer name and url"
+  },
+  "1.0.9": {
+    "en": "Error handling and logging for debugging"
   }
 }
