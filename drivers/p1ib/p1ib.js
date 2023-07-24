@@ -13,8 +13,10 @@ class P1ibConnector {
   }
 
   getValueFromMeterData(meterData, obis) {
-    if (obis in meterData['d']) {
-      return meterData['d'][obis][9]; // most recent value in the array
+    for (const group in meterData['d']) {
+      if (obis in meterData['d'][group]['obis']) {
+        return meterData['d'][group]['obis'][obis]['v'][9]; // most recent value in the array
+      }
     }
     return 0;
   }
