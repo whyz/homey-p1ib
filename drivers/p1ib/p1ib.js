@@ -13,11 +13,18 @@ class P1ibConnector {
   }
 
   getValueFromMeterData(meterData, obis) {
+    // for newer p1ib firmware versions
+    if (obis in meterData['d']) {
+      return meterData['d'][obis][9];
+    }
+
+    // for older p1ib firmware versions
     for (const group in meterData['d']) {
       if (obis in meterData['d'][group]['obis']) {
-        return meterData['d'][group]['obis'][obis]['v'][9]; // most recent value in the array
+        return meterData['d'][group]['obis'][obis]['v'][9];
       }
     }
+
     return 0;
   }
 

@@ -9,7 +9,7 @@ class P1ibDevice extends Device {
     this.log('p1ib has been initialized');
 
     const settings = this.getSettings();
-    console.log('p1ib address:', settings.p1ib_address);
+    this.log('p1ib address:', settings.p1ib_address);
 
     this.p1ibConnector = new P1ibConnector(settings.p1ib_address);
     await this.update();
@@ -22,7 +22,7 @@ class P1ibDevice extends Device {
   async update() {
     try {
       if (!this.p1ibConnector.address) {
-        console.log('No address has been set - skipping update');
+        this.log('No address has been set - skipping update');
         return;
       }
 
@@ -49,7 +49,7 @@ class P1ibDevice extends Device {
 
       this.setAvailable().catch(this.error);
     } catch (error) {
-      console.error('error:', error);
+      this.error('error:', error);
       this.setUnavailable().catch(this.error);
     }
   }
@@ -75,13 +75,13 @@ class P1ibDevice extends Device {
   onDiscoveryResult(discoveryResult) {
     // Return a truthy value here if the discovery result matches your device.
 
-    console.log('onDiscoveryResult:', discoveryResult);
+    this.log('onDiscoveryResult:', discoveryResult);
 
     return discoveryResult.id === this.getData().id;
   }
 
   async onDiscoveryAvailable(discoveryResult) {
-    console.log('onDiscoveryAvailable:', discoveryResult);
+    this.log('onDiscoveryAvailable:', discoveryResult);
 
     const p1ibAddress = `${discoveryResult.address}:${discoveryResult.port}`;
 
@@ -93,7 +93,7 @@ class P1ibDevice extends Device {
   }
 
   async onDiscoveryAddressChanged(discoveryResult) {
-    console.log('onDiscoveryAddressChanged');
+    this.log('onDiscoveryAddressChanged');
 
     const p1ibAddress = `${discoveryResult.address}:${discoveryResult.port}`;
 
@@ -105,7 +105,7 @@ class P1ibDevice extends Device {
   }
 
   onDiscoveryLastSeenChanged(discoveryResult) {
-    console.log('onDiscoveryLastSeenChanged');
+    this.log('onDiscoveryLastSeenChanged');
   }
 
 }

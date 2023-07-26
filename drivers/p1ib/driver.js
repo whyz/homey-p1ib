@@ -9,17 +9,17 @@ class P1ibDriver extends Driver {
     this.log('p1ib driver has been initialized');
 
     const discoveryStrategy = this.getDiscoveryStrategy();
-    console.log('strategy:', discoveryStrategy);
+    this.log('strategy:', discoveryStrategy);
 
     const initialDiscoveryResults = discoveryStrategy.getDiscoveryResults();
 
     for (const discoveryResult of Object.values(initialDiscoveryResults)) {
-      console.log('initial:', discoveryResult);
+      this.log('initial:', discoveryResult);
       this.handleDiscoveryResult(discoveryResult);
     }
 
     discoveryStrategy.on('result', discoveryResult => {
-      console.log('got discovery result:', discoveryResult);
+      this.log('got discovery result:', discoveryResult);
       this.handleDiscoveryResult(discoveryResult);
     });
   }
@@ -37,38 +37,38 @@ class P1ibDriver extends Driver {
 
     this.discoveryResult = device;
 
-    console.log('stored discoveryresult:', this.discoveryResult);
+    this.log('stored discoveryresult:', this.discoveryResult);
   }
 
   async onPair(session) {
-    console.log('onPair');
+    this.log('onPair');
 
     session.setHandler('showView', async (viewId) => {
-      console.log('View:', viewId);
+      this.log('View:', viewId);
     });
 
     session.setHandler('test_connection', async (data) => {
-      console.log('test connection:', data.p1ibAddress);
+      this.log('test connection:', data.p1ibAddress);
 
       try {
         const p1ibConnector = new P1ibConnector(data.p1ibAddress);
         const deviceInfo = await p1ibConnector.getDeviceInfo();
         return deviceInfo;
       } catch (error) {
-        console.error(error);
+        this.error(error);
         return 'ERROR';
       }
     });
 
     // called by list_devices view template
     session.setHandler('list_devices', async (data) => {
-      console.log('list_devices called');
+      this.log('list_devices called');
 
       if (this.discoveryResult) {
-        console.log('discoveryResult found', this.discoveryResult);
+        this.log('discoveryResult found', this.discoveryResult);
         return [this.discoveryResult];
       }
-      console.log('no devices found - going to manual add view');
+      this.log('no devices found - going to manual add view');
       await session.showView('manual_add_view');
       return [];
     });
