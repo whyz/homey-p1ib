@@ -31,5 +31,8 @@
   },
   "1.0.10": {
     "en": "Revert meter data reading "
+  },
+  "1.0.11": {
+    "en": "Support both older and newer versions of p1ib firmware"
   }
 }
