@@ -34,5 +34,8 @@
   },
   "1.0.11": {
     "en": "Support both older and newer versions of p1ib firmware"
+  },
+  "1.0.12": {
+    "en": "Invert measure_power.export. Hopefully fixes measurement of export value."
   }
 }
