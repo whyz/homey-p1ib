@@ -54,23 +54,23 @@ class P1ibConnector {
       console.error(`Unable to parse meterData json from body: ${responseBody}`);
     }
 
-    const momentaryPowerImportObis = '1.0.1.7.0.255';
-    const momentaryPowerExportObis = '1.0.2.7.0.255';
+    const momentaryPowerImportObis = '1-0:1.7.0';
+    const momentaryPowerExportObis = '1-0:2.7.0';
 
-    const activeImportObis = '1.0.1.8.0.255';
-    const activeExportObis = '1.0.2.8.0.255';
+    const activeImportObis = '1-0:1.8.0';
+    const activeExportObis = '1-0:2.8.0';
 
-    const voltageL1Obis = '1.0.32.7.0.255';
-    const voltageL2Obis = '1.0.52.7.0.255';
-    const voltageL3Obis = '1.0.72.7.0.255';
+    const voltageL1Obis = '1-0:32.7.0';
+    const voltageL2Obis = '1-0:52.7.0';
+    const voltageL3Obis = '1-0:72.7.0';
 
-    const currentL1Obis = '1.0.31.7.0.255';
-    const currentL2Obis = '1.0.51.7.0.255';
-    const currentL3Obis = '1.0.71.7.0.255';
+    const currentL1Obis = '1-0:31.7.0';
+    const currentL2Obis = '1-0:51.7.0';
+    const currentL3Obis = '1-0:71.7.0';
 
-    const powerL1Obis = '1.0.21.7.0.255';
-    const powerL2Obis = '1.0.41.7.0.255';
-    const powerL3Obis = '1.0.61.7.0.255';
+    const powerL1Obis = '1-0:21.7.0';
+    const powerL2Obis = '1-0:41.7.0';
+    const powerL3Obis = '1-0:61.7.0';
 
     const momentaryPowerImport = this.getValueFromMeterData(meterData, momentaryPowerImportObis) * 1000;
     const momentaryPowerExport = this.getValueFromMeterData(meterData, momentaryPowerExportObis) * 1000;
