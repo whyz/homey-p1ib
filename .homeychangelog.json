@@ -37,5 +37,8 @@
   },
   "1.0.12": {
     "en": "Invert measure_power.export. Hopefully fixes measurement of export value."
+  },
+  "1.1.0": {
+    "en": "Support for p1ib (development) firmware 20240625 (f934567) and newer, which has a new obis code format. Please note that this version is NOT compatible with older firmwares!"
   }
 }
