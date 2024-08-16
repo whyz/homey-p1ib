@@ -40,5 +40,8 @@
   },
   "1.1.0": {
     "en": "Support for p1ib (development) firmware 20240625 (f934567) and newer, which has a new obis code format. Please note that this version is NOT compatible with older firmwares!"
+  },
+  "1.1.1": {
+    "en": "On public demand: Revert previous change that inverted export value"
   }
 }
