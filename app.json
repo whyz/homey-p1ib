@@ -46,6 +46,7 @@
         "meter_power.export",
         "measure_power",
         "measure_power.export",
+        "measure_power.import",
         "measure_voltage.l1",
         "measure_voltage.l2",
         "measure_voltage.l3",
@@ -60,6 +61,14 @@
           },
           "desc": {
             "en": "Currently exporting power"
+          }
+        },
+        "measure_power.import": {
+          "title": {
+            "en": "Power import"
+          },
+          "desc": {
+            "en": "Currently importing power"
           }
         },
         "meter_power.export": {

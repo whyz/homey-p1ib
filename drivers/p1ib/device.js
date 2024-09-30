@@ -29,8 +29,10 @@ class P1ibDevice extends Device {
       const meterData = await this.p1ibConnector.readMeterData();
       this.log(meterData);
 
-      this.setCapabilityValue('measure_power', meterData.momentaryPowerImport).catch(this.error);
-      this.setCapabilityValue('measure_power.export', meterData.momentaryPowerExport * -1).catch(this.error);
+      const power = meterData.momentaryPowerImport - meterData.momentaryPowerExport;
+      this.setCapabilityValue('measure_power', power).catch(this.error);
+      this.setCapabilityValue('measure_power.export', meterData.momentaryPowerExport).catch(this.error);
+      this.setCapabilityValue('measure_power.import', meterData.momentaryPowerImport).catch(this.error);
 
       this.setCapabilityValue('meter_power', meterData.activeImport).catch(this.error);
       this.setCapabilityValue('meter_power.export', meterData.activeExport).catch(this.error);
