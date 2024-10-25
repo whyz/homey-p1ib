@@ -43,5 +43,8 @@
   },
   "1.1.1": {
     "en": "On public demand: Revert previous change that inverted export value"
+  },
+  "1.1.2": {
+    "en": "Add measure_power.import and change measure_power to report both import and export"
   }
 }
