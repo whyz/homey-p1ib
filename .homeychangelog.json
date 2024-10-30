@@ -46,5 +46,8 @@
   },
   "1.1.2": {
     "en": "Add measure_power.import and change measure_power to report both import and export"
+  },
+  "1.1.3": {
+    "en": "Make PowerLx to take into account for the export power as well as import. Ie, make it similar as the generic power metric."
   }
 }
