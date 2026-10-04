@@ -1,0 +1,23 @@
+{
+  "title": {
+    "en": "Energy meter Export changed",
+    "sv": "Elmätaren Export ändrades"
+  },
+  "tokens": [
+    {
+      "type": "number",
+      "name": "meter_power.export",
+      "title": {
+        "en": "Energy",
+        "sv": "Energi"
+      }
+    }
+  ],
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=p1ib"
+    }
+  ]
+}

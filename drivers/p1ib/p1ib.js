@@ -93,13 +93,17 @@ class P1ibConnector {
     const powerImportL2 = this.getValueFromMeterData(meterData, powerImportL2Obis) * 1000;
     const powerImportL3 = this.getValueFromMeterData(meterData, powerImportL3Obis) * 1000;
 
-    const powerExportL1 = this.getValueFromMeterData(meterData, powerExportL1Obis) * 1000;
-    const powerExportL2 = this.getValueFromMeterData(meterData, powerExportL2Obis) * 1000;
-    const powerExportL3 = this.getValueFromMeterData(meterData, powerExportL3Obis) * 1000;
+    const exportpowerL1 = this.getValueFromMeterData(meterData, powerExportL1Obis) * 1000;
+    const exportpowerL2 = this.getValueFromMeterData(meterData, powerExportL2Obis) * 1000;
+    const exportpowerL3 = this.getValueFromMeterData(meterData, powerExportL3Obis) * 1000;
 
-    const powerL1 = powerImportL1 - powerExportL1;
-    const powerL2 = powerImportL2 - powerExportL2;
-    const powerL3 = powerImportL3 - powerExportL3;
+    const powerL1 = powerImportL1 - exportpowerL1;
+    const powerL2 = powerImportL2 - exportpowerL2;
+    const powerL3 = powerImportL3 - exportpowerL3;
+
+    const meanVoltage = (voltageL1 + voltageL2 + voltageL3) / 3;
+
+    const totalCurrent = (currentL1 + currentL2 + currentL3);
 
     const retval = {
       voltageL1,
@@ -111,10 +115,15 @@ class P1ibConnector {
       powerL1,
       powerL2,
       powerL3,
+      exportpowerL1,
+      exportpowerL2,
+      exportpowerL3,
+      voltage: meanVoltage,
+      current: totalCurrent,
       momentaryPowerImport,
       momentaryPowerExport,
       activeEnergyImport,
-      activeEnergyExport
+      activeEnergyExport,
     };
 
     return retval;

@@ -49,5 +49,8 @@
   },
   "1.1.3": {
     "en": "Make PowerLx to take into account for the export power as well as import. Ie, make it similar as the generic power metric."
+  },
+  "1.1.4": {
+    "en": "Fix crash when reading meter data. Add separate imported/exported energy to Homey Energy, and make the 'Energy meter Import/Export changed' and 'Power Export changed' flow triggers work."
   }
 }

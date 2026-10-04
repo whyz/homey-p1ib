@@ -31,11 +31,11 @@ class P1ibDevice extends Device {
 
       const power = meterData.momentaryPowerImport - meterData.momentaryPowerExport;
       this.setCapabilityValue('measure_power', power).catch(this.error);
-      this.setCapabilityValue('measure_power.export', meterData.momentaryPowerExport).catch(this.error);
+      this.setCapabilityValueAndTrigger('measure_power.export', meterData.momentaryPowerExport);
       this.setCapabilityValue('measure_power.import', meterData.momentaryPowerImport).catch(this.error);
 
-      this.setCapabilityValue('meter_power.import', meterData.activeEnergyImport).catch(this.error);
-      this.setCapabilityValue('meter_power.export', meterData.activeEnergyExport).catch(this.error);
+      this.setCapabilityValueAndTrigger('meter_power.import', meterData.activeEnergyImport);
+      this.setCapabilityValueAndTrigger('meter_power.export', meterData.activeEnergyExport);
 
       this.setCapabilityValue('measure_current.l1', meterData.currentL1).catch(this.error);
       this.setCapabilityValue('measure_current.l2', meterData.currentL2).catch(this.error);
@@ -49,10 +49,27 @@ class P1ibDevice extends Device {
       this.setCapabilityValue('measure_power.l2', meterData.powerL2).catch(this.error);
       this.setCapabilityValue('measure_power.l3', meterData.powerL3).catch(this.error);
 
+      this.setCapabilityValue('measure_power.export_l1', meterData.exportpowerL1).catch(this.error);
+      this.setCapabilityValue('measure_power.export_l2', meterData.exportpowerL2).catch(this.error);
+      this.setCapabilityValue('measure_power.export_l3', meterData.exportpowerL3).catch(this.error);
+
       this.setAvailable().catch(this.error);
     } catch (error) {
       this.error('error:', error);
       this.setUnavailable().catch(this.error);
+    }
+  }
+
+  // Sub-capabilities get no built-in flow cards, so fire our own "<capability>_changed" trigger.
+  setCapabilityValueAndTrigger(capability, value) {
+    const previousValue = this.getCapabilityValue(capability);
+
+    this.setCapabilityValue(capability, value).catch(this.error);
+
+    if (value !== previousValue) {
+      this.homey.flow.getDeviceTriggerCard(`${capability}_changed`)
+        .trigger(this, { [capability]: value })
+        .catch(this.error);
     }
   }
 
@@ -67,6 +84,10 @@ class P1ibDevice extends Device {
 
   async onRenamed(name) {
     this.log('p1ib was renamed');
+  }
+
+  async onUninit() {
+    this.homey.clearInterval(this.pollTimeout);
   }
 
   async onDeleted() {
