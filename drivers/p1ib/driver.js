@@ -43,11 +43,11 @@ class P1ibDriver extends Driver {
   async onPair(session) {
     this.log('onPair');
 
-    session.setHandler('showView', async (viewId) => {
+    session.setHandler('showView', async viewId => {
       this.log('View:', viewId);
     });
 
-    session.setHandler('test_connection', async (data) => {
+    session.setHandler('test_connection', async data => {
       this.log('test connection:', data.p1ibAddress);
 
       try {
@@ -61,7 +61,7 @@ class P1ibDriver extends Driver {
     });
 
     // called by list_devices view template
-    session.setHandler('list_devices', async (data) => {
+    session.setHandler('list_devices', async data => {
       this.log('list_devices called');
 
       if (this.discoveryResult) {

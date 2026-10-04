@@ -1,0 +1,23 @@
+{
+  "title": {
+    "en": "Power Export changed",
+    "sv": "Effekt Export ändrades"
+  },
+  "tokens": [
+    {
+      "type": "number",
+      "name": "measure_power.export",
+      "title": {
+        "en": "Power",
+        "sv": "Effekt"
+      }
+    }
+  ],
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=p1ib"
+    }
+  ]
+}

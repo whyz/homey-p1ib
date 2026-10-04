@@ -1,0 +1,23 @@
+{
+  "title": {
+    "en": "Energy meter Import changed",
+    "sv": "Elmätaren Import ändrades"
+  },
+  "tokens": [
+    {
+      "type": "number",
+      "name": "meter_power.import",
+      "title": {
+        "en": "Energy",
+        "sv": "Energi"
+      }
+    }
+  ],
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=p1ib"
+    }
+  ]
+}
